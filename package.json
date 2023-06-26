@@ -8,7 +8,7 @@
     "dev": "nodemon",
     "start": "ts-node build && node build/index.ts",
     "db:migrate": "prisma migrate dev --name init",
-    "db:seed":"prisma db seed"
+    "db:seed": "prisma db seed"
   },
   "author": "",
   "license": "ISC",
@@ -23,10 +23,11 @@
   },
   "dependencies": {
     "@prisma/client": "^4.16.0",
+    "axios": "^1.4.0",
     "dotenv": "^16.3.0",
     "express": "^4.18.2"
   },
-  "prisma":{
+  "prisma": {
     "seed": "ts-node prisma/seeds.ts"
   }
 }

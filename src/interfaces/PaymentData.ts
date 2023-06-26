@@ -1,5 +1,5 @@
 export interface PaymentData {
-    creditCartNumber: string
+    creditCardNumber: string
     creditCardHolder: string
     creditCardExpiration: string
     creditCardSecurityCode: string
