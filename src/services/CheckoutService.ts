@@ -37,7 +37,6 @@ export default class CheckoutService {
         cart.find((item) => item.id === snack.id)?.quantity! *
         Number(snack.price),
     }))
-    // console.log(`snacksInCart`, snacksInCart)
 
     // TODO: registrar os dados do cliente no BD
     const customerCreated = await this.createCustomer(customer)
@@ -70,10 +69,38 @@ export default class CheckoutService {
   }
 
   private async createCustomer(customer: CustomerData): Promise<Customer> {
+    
+
     const customerCreated = await this.prisma.customer.upsert({
       where: { email: customer.email },
       update: customer,
-      create: customer,
+      // {
+      //   fullName: customer.fullName,
+      //   email: customer.email,
+      //   mobile: customer.mobile,
+      //   zipCode: customer.zipCode,
+      //   street: customer.street,
+      //   number: customer.number,
+      //   complement: customer.complement,
+      //   neighborhood: customer.neighborhood,
+      //   city: customer.city,
+      //   state: customer.state
+
+      
+      create: customer
+      // {
+      //   fullName: customer.fullName,
+      //   email: customer.email,
+      //   mobile: customer.mobile,
+      //   document: customer.document,
+      //   zipCode: customer.zipCode,
+      //   street: customer.street,
+      //   number: customer.number,
+      //   complement: customer.complement,
+      //   neighborhood: customer.neighborhood,
+      //   city: customer.city,
+      //   state: customer.state
+      // },
     })
 
     return customerCreated

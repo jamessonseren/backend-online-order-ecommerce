@@ -7,6 +7,8 @@ import { CustomerData } from "./interfaces/CustomerData"
 import { PaymentData } from "./interfaces/PaymentData"
 import CheckoutService from "./services/CheckoutService"
 
+import cors from 'cors'
+
 dotenv.config()
 
 const prisma = new PrismaClient()
@@ -16,9 +18,8 @@ const port = process.env.PORT || 5000
 
 app.use(express.json())
 
-app.get("/", (req: Request, res: Response)=> {
-    res.send("hello World")
-})
+app.use(cors())
+
 
 app.get("/snacks", async (req: Request, res: Response) => {
     const { snack } = req.query
@@ -58,7 +59,7 @@ interface CheckoutRequest extends Request {
     }
 }
 
-app.post('/checkout', async (req: Request, res: Response) => {
+app.post('/checkout', async (req: CheckoutRequest, res: Response) => {
     const { cart, customer, payment } = req.body
 
     const checkoutService = new CheckoutService()
