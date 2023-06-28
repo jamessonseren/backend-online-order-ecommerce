@@ -4,9 +4,9 @@
   "description": "",
   "main": "./src/index.ts",
   "scripts": {
-    "build": "rimraf ./build && tsc",
+    "build": "rimraf ./public && tsc",
     "dev": "nodemon",
-    "start": "ts-node build && node build/index.ts",
+    "start": "ts-node public && node public/index.ts",
     "db:migrate": "prisma migrate dev --name init",
     "db:seed": "prisma db seed"
   },
