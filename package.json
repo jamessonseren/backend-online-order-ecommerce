@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rimraf ./public && tsc",
     "dev": "nodemon",
-    "start": "ts-node public && node public/index.ts",
+    "start": "ts-node ./src/index.ts",
     "db:migrate": "prisma migrate dev --name init",
     "db:seed": "prisma db seed",
     "postinstall": "prisma generate"
