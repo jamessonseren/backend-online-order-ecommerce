@@ -4,10 +4,9 @@
   "description": "",
   "main": "./src/index.ts",
   "scripts": {
-    "build": "rimraf ./public && tsc",
+    "build": "prisma generate && rimraf ./public && tsc",
     "dev": "nodemon",
     "vercel-build": "npx prisma migrate deploy",
-    "postinstall": "prisma generate",
     "start": "ts-node public && node public/index.ts",
     "db:migrate": "prisma migrate dev --name init",
     "db:seed": "prisma db seed"
