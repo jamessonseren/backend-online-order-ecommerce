@@ -6,7 +6,6 @@
   "scripts": {
     "build": "prisma generate && rimraf ./public && tsc",
     "dev": "nodemon",
-    "vercel-build": "npx prisma migrate deploy",
     "start": "ts-node public && node public/index.ts",
     "db:migrate": "prisma migrate dev --name init",
     "db:seed": "prisma db seed"
